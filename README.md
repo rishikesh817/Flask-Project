@@ -2,7 +2,7 @@ To use:
 
 - Clone the repository:
   ```sh
-  git clone https://github.com/karthiksrinivasan/flask-skeleton.git
+  git clone https://github.com/rishikesh817/Flask-Project.git
   ```
 - Change directory to the cloned repository:
   ```sh
