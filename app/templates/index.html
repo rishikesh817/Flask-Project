@@ -1,32 +1,17 @@
-<!DOCTYPE html>
+<!-- extend base layout -->
+{% extends "base.html" %}
 
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - microblog</title>
-    {% else %}
-    <title>microblog</title>
-    {% endif %}
-  </head>
-  <body>
-    <div><a href="/login">Login</a></div>
-    <hr>
-
+{% block content %}
     <h1>Hi, {{ user.nickname }}!</h1>
+    <div><a href="/login">Login</a></div>
+
     {% for post in posts %}
-    <div><p>{{ post.author.nickname }} is <b>{{ post.body }}</b> years old.</p></div>
+    
+
+    <p>
+	
+
+      {{ post.author.nickname }} says: <b>{{ post.body }}</b>
+    </p>
     {% endfor %}
-
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    {% block content %}{% endblock %}
-  </body>
-</html>
+{% endblock %}

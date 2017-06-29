@@ -1,25 +1,27 @@
+from flask import render_template, flash, redirect
 from app import app
-from flask import render_template
-from .forms import LoginForm 
+from .forms import LoginForm
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'nickname': 'Rishikesh'}  # fake user
-    posts = [  # fake array of posts
-    { 
-    	'author': {'nickname': 'John'},
-        'body': '24' 
-    },
-    {     
-
-  		'author': {'nickname': 'Susan'}, 
-        'body': '51' 
-        
-    }
-    
+    user = {'nickname': 'Miguel'}
+    posts = [
+        {
+            'author': {'nickname': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
     ]
-    return render_template("index.html", title='Home', user=user, posts=posts)
+    return render_template('index.html',
+                           title='Home',
+                           user=user,
+                           posts=posts)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -28,6 +30,7 @@ def login():
         flash('Login requested for OpenID="%s", remember_me=%s' %
               (form.openid.data, str(form.remember_me.data)))
         return redirect('/index')
-    return render_template('login.html', 
+    return render_template('login.html',
                            title='Sign In',
-                           form=form)
+                           form=form,
+                           providers=app.config['OPENID_PROVIDERS'])
