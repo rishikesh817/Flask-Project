@@ -15,3 +15,26 @@ Running
 
 To run the application in the development web server just execute `run.py` with the Python interpreter from the flask virtual environment.
 
+<<<<<<< HEAD
+=======
+- Clone the repository:
+  ```sh
+  git clone https://github.com/rishikesh817/Flask-Project.git
+  ```
+- Change directory to the cloned repository:
+  ```sh
+  cd flask-skeleton
+  ```
+- Setup Virtual Environment:
+  ```sh
+  virtualenv flask
+  ```
+- Install Python Libraries:
+  ```sh
+  flask/bin/pip install -r requirements.txt
+  ```
+- Run the application:
+  ```sh
+  ./run.py
+  ```
+>>>>>>> d8ed65f80de0a5c50627d47107bcc3703c29c7bb
